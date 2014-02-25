@@ -1,0 +1,21 @@
+%tr
+  %td= link_to "#{car.model}", car_path(car)
+  %td= car.brand
+  %td= car.car_type
+  %td= car.color
+  %td= car.kms
+  %td= car.plates
+  %td
+    .btn-group
+      %button.btn.btn-default.btn-xs{:type => "button"} Menu
+      %button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+        %span.caret
+        %span.sr-only Toggle Dropdown
+      %ul.dropdown-menu{:role => "menu"}
+        %li= link_to 'Show', car_path(car)
+        %li= link_to 'Edit', edit_car_path(car)
+        %li.divider
+        %li= link_to 'Delete', car_path(car),
+          method: :delete,
+          data: { confirm: 'Are you sure?' },
+          class: 'label-danger'

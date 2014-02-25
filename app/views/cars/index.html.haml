@@ -1,0 +1,22 @@
+.container
+  .page-header
+    %h2
+      %span.glyphicon.glyphicon-search
+      Automoviles
+      %small.lead Esta es la lista de los automoviles de sus clientes
+    %table.table.table-striped
+      .row
+        .col-xs-6.col-md-2
+          = link_to 'Agregar Automovil', new_car_path, class: "btn btn-success btn-block"
+      %br
+      %thead
+        %tr
+          %th Modelo
+          %th Marca
+          %th Tipo de Automovil
+          %th Color
+          %th Kilometraje
+          %th Placas
+          %th Actions
+      %tbody
+        = render cars

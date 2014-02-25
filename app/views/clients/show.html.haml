@@ -1,0 +1,27 @@
+.container
+  .page-header
+    %h2
+      %span.glyphicon.glyphicon-user
+      = client.name
+      %small.lead Mostrando detalles del usuario
+  .row
+    .col-xs-12.col-sm-6.col-md-1
+    .col-xs-6.col-md-11
+      %strong Direccion:
+      = client.address
+      %br
+      %strong CP:
+      = client.zip
+      %br
+      %strong Telefono:
+      = client.phone
+      %br
+      %strong RFC:
+      = client.rfc
+      %br
+      %br
+      = link_to 'Home', clients_path, class: 'btn btn-default'
+      = link_to 'Eliminar Cliente', client_path(client),
+        method: :delete,
+        data: { confirm: 'Seguro que deseas eliminar el cliente?' },
+        class: 'btn btn-danger'
