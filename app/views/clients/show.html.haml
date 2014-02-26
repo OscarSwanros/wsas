@@ -8,20 +8,26 @@
     .col-xs-12.col-sm-6.col-md-1
     .col-xs-6.col-md-11
       %strong Direccion:
+      %br
       = client.address
       %br
+      %br
       %strong CP:
+      %br
       = client.zip
       %br
+      %br
       %strong Telefono:
+      %br
       = client.phone
       %br
+      %br
       %strong RFC:
+      %br
       = client.rfc
       %br
       %br
-      = link_to 'Home', clients_path, class: 'btn btn-default'
       = link_to 'Eliminar Cliente', client_path(client),
         method: :delete,
         data: { confirm: 'Seguro que deseas eliminar el cliente?' },
-        class: 'btn btn-danger'
+        class: 'btn btn-danger btn-xs'

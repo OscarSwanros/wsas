@@ -1,27 +1,28 @@
-%strong
-  Model:
-= car.model
-%br
-%strong
-  Brand:
-= car.brand
-%br
-%strong
-  Car Type:
-= car.car_type
-%br
-%strong
-  Color:
-= car.color
-%br
-%strong
-  Kilometraje:
-= car.kms
-%br
-%strong
-  Placas:
-= car.plates
-
-%br
-%br
-= link_to 'Home', cars_path
+.container
+  .page-header
+    %h2
+      %span.glyphicon.glyphicon-search
+      = car.model
+      %small.lead= car.brand
+  .row
+    .col-xs-12.col-sm-6.col-md-1
+    .col-xs-6.col-md-11
+      %strong Tipo de Automovil:
+      %br
+      = car.car_type
+      %br
+      %br
+      %strong Kilometraje:
+      %br
+      = pluralize(car.kms, 'km', 'kms')
+      %br
+      %br
+      %strong Placas:
+      %br
+      = car.plates.upcase
+      %br
+      %br
+      = link_to 'Eliminar Automovil', car_path(car),
+        method: :delete,
+        data: { confirm: 'Seguro que deseas eliminar el automovil?' },
+        class: 'btn btn-danger btn-xs'

@@ -8,10 +8,10 @@
         - car.errors.full_messages.each do |msg|
           %li= msg
 
-  = f.input :model
-  = f.input :brand
-  = f.input :car_type
-  = f.input :color
-  = f.input :kms
-  = f.input :plates
-  = f.submit
+  = f.input :model, label: 'Modelo:'
+  = f.input :brand, label: 'Marca:'
+  = f.input :car_type, label: 'Tipo de Automovil:'
+  = f.input :color, label: 'Color:'
+  = f.input :kms, label: 'Kilometraje'
+  = f.input :plates, label: 'Placas'
+  = f.submit 'Guardar Automovil', class: 'btn btn-success'
