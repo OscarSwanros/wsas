@@ -5,6 +5,7 @@ ruby '2.1.0'
 gem 'decent_exposure'
 gem 'haml-rails'
 gem 'faker'
+gem 'devise'
 
 gem 'airbrake'
 gem 'bourbon'
