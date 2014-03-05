@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
-  expose(:car, attributes: :car_params)
   expose(:cars)
+  expose(:car, attributes: :car_params)
+  expose(:clients) { Client.all }
 
   def create
     if car.save
@@ -19,7 +20,7 @@ class CarsController < ApplicationController
   end
 
   def destroy
-    if car.destroy
+    if client.destroy
       redirect_to cars_path
     end
   end
@@ -32,7 +33,8 @@ class CarsController < ApplicationController
       :car_type,
       :color,
       :kms,
-      :plates
+      :plates,
+      :client_id
     )
   end
 end

@@ -1,5 +1,6 @@
 class ClientsController < ApplicationController
   expose(:client, attributes: :client_params)
+  expose(:cars) { Car.where(client_id: client.id) }
   expose(:clients)
 
   def create
