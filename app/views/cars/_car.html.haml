@@ -5,6 +5,7 @@
   %td= car.color
   %td= car.kms
   %td= car.plates
+  %td= link_to "#{car.client_name}", client_path(car.client)
   %td
     .btn-group
       %button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
@@ -18,3 +19,4 @@
           method: :delete,
           data: { confirm: 'Are you sure?' },
           class: 'label-danger'
+
