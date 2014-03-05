@@ -1,0 +1,27 @@
+.container
+  .page-header
+    %h2
+      %span.glyphicon.glyphicon-user
+      Editar Cuenta
+      %small.lead Edite los datos de su cuenta
+  .row
+    .col-md-4
+    .col-md-6
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+        = f.error_notification
+        #form-inputs
+          = f.input :email, :required => true, :autofocus => true
+          - if devise_mapping.confirmable? && resource.pending_reconfirmation
+            %p
+              Currently Waiting confirmation fonr
+              = resource.unconfirmed_email
+          = f.input :password, :autocomplete => "off", :hint => "Deje este espacio en blanco si no desea cambiarlo", :required => false
+          = f.input :password_confirmation, :required => false
+          = f.input :current_password, :hint => "Ingresa tu contrasena actual para confirmar los cambios", :required => true
+        #form-actions
+          = f.button :submit, "Update"
+
+      = link_to "Atras", :back
+      %br
+      = link_to "Cancelar cuenta", registration_path(resource_name), :data => { :confirm => "Seguro?" },
+                                                                    :method => :delete
