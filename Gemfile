@@ -4,8 +4,8 @@ ruby '2.1.0'
 
 gem 'decent_exposure'
 gem 'haml-rails'
-gem 'faker'
 gem 'devise'
+gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 
 gem 'airbrake'
 gem 'bourbon'
@@ -38,17 +38,19 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
-  gem 'rspec-rails', '>= 2.14'
+  gem 'faker'
 end
 
 group :test do
   gem 'capybara-webkit', '>= 1.0.0'
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
   gem 'timecop'
   gem 'webmock'
+  gem 'rspec-rails'
 end
 
 group :staging, :production do
