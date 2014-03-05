@@ -9,13 +9,14 @@
     %nav.navbar.navbar-default.navbar-fixed-top{:role => "navigation"}
       .container
         .navbar-header
-          = link_to 'Home', root_path, class: 'navbar-brand'
+          = link_to 'Inicio', root_path, class: 'navbar-brand'
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li{:class => "#{'active' if (current_page? (clients_path) or current_page? (root_path))}"}
-              = link_to 'Clients', clients_path
-            %li{:class => "#{'active' if current_page? (cars_path)}"}
-              = link_to 'Cars', cars_path
+            - if user_signed_in?
+              %li{:class => "#{'active' if (current_page? (clients_path) or current_page? (root_path))}"}
+                = link_to 'Clientes', clients_path
+              %li{:class => "#{'active' if current_page? (cars_path)}"}
+                = link_to 'Automóviles', cars_path
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               %li
@@ -23,10 +24,8 @@
               %li{:class => "#{'active' if current_page? (edit_user_registration_path)}"}
                 = link_to 'Editar Perfil', edit_user_registration_path
               %li
-                = link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete
+                = link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete
             - else
-              %li{:class => "#{'active' if current_page? (new_user_registration_path)}"}
-                = link_to 'Registrarse', new_user_registration_path
               %li{:class => "#{'active' if current_page? (new_user_session_path)}"}
                 = link_to 'Iniciar Sesion', new_user_session_path
 
