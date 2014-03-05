@@ -5,4 +5,10 @@ class Car < ActiveRecord::Base
   validates :color, presence: true
   validates :kms, presence: true
   validates :plates, presence: true
+
+  belongs_to :client
+
+  delegate :name,
+           :to  => :client,
+           :prefix => true
 end
