@@ -1,6 +1,7 @@
 class WorkersController < ApplicationController
   expose(:workers)
   expose(:worker, attributes: :worker_params)
+  expose(:cars) { Car.all }
 
   def create
     if worker.save
@@ -28,7 +29,7 @@ class WorkersController < ApplicationController
   def worker_params
     params.require(:worker).permit(
       :name,
-      :woker_type
+      :worker_type
     )
   end
 end

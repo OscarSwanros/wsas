@@ -1,4 +1,4 @@
 class Worker < ActiveRecord::Base
   validates :name, presence: true
-  validates :woker_type, presence: true
+  validates :worker_type, presence: true
 end

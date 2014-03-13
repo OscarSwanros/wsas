@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20140313212529) do
 
   create_table "workers", force: true do |t|
     t.string   "name"
-    t.string   "woker_type"
+    t.string   "worker_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
