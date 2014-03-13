@@ -8,11 +8,11 @@
         - car.errors.full_messages.each do |msg|
           %li= msg
 
-  = f.input :model, label: 'Modelo:'
-  = f.input :brand, label: 'Marca:'
-  = f.input :car_type, label: 'Tipo de Automovil:'
-  = f.input :color, label: 'Color:'
-  = f.input :kms, label: 'Kilometraje'
-  = f.input :plates, label: 'Placas'
-  = f.input :client_id, collection: clients, :required => true
+  = f.input :model, placeholder: "El modelo del automovil", label: 'Modelo:'
+  = f.input :brand, placeholder: "La marca del automovil", label: 'Marca:'
+  = f.input :car_type, collection: ['Sedan', 'Hashback', 'Camioneta Pickup', 'Camioneta Cerrada'], prompt: "Seleccione el tipo del automovil", label: 'Tipo de Automovil:'
+  = f.input :color, placeholder: "Seleccione el color del automovil", label: 'Color:'
+  = f.input :kms, placeholder: "Numero de kilometros recorridos por el automovil", label: 'Kilometraje'
+  = f.input :plates, placeholder: "Las placas del automovil", label: 'Placas'
+  = f.input :client_id, collection: clients, prompt: "Seleccione el cliente", :required => true
   = f.submit 'Guardar Automovil', class: 'btn btn-success'

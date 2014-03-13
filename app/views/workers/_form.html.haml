@@ -9,5 +9,5 @@
           %li= msg
 
   = f.input :name, placeholder: "Ingrese el nombre del trabajador", label: 'Nombre del trabjador:'
-  = f.input :woker_type, collection: %w{Pintor Laminero}, prompt: "Seleccione el tipo de trabajador", label: 'Tipo de trabajador:'
+  = f.input :worker_type, collection: %w{Pintor Laminero}, prompt: "Seleccione el tipo de trabajador", label: 'Tipo de trabajador:'
   = f.submit 'Guardar Trabajador', class: 'btn btn-success'
