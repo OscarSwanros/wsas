@@ -1,0 +1,15 @@
+.container
+  .page-header
+    %h2
+      %span.glyphicon.glyphicon-search
+      = worker.name
+      %small.lead= worker.woker_type
+  .row
+    .col-xs-12.col-sm-6.col-md-1
+    .col-xs-6.col-md-11
+      %br
+      %br
+      = link_to 'Eliminar Trabajador', worker_path(worker),
+        method: :delete,
+        data: { confirm: 'Seguro que deseas eliminar este trabajador?' },
+        class: 'btn btn-danger btn-xs'

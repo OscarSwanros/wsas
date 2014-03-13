@@ -1,0 +1,24 @@
+.container
+  .page-header
+    %h2
+      %span.glyphicon.glyphicon-search
+      Trabajadores
+      %small.lead Esta es la lista de sus trabajadores
+    %table.table.table-striped
+      .row
+        .col-xs-6.col-md-2
+          - if workers.count > 0
+            = link_to 'Agregar Automovil', new_worker_path, class: "btn btn-success btn-block"
+          - else
+            = link_to 'Agregar Cliente', new_worker_path, class: "btn btn-danger btn-block"
+        .col-xs-5.col-md-9
+          %small.lead
+            = render text: "No tiene agregado ningun cliente. Agregue un cliente para poder asignarle automoviles" unless workers.count > 0
+      %br
+      %thead
+        %tr
+          %th Nombre
+          %th Tipo de Trabajador
+          %th Acciones
+      %tbody
+        = render workers
