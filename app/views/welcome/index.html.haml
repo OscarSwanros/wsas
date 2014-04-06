@@ -9,21 +9,6 @@
           %br
           %small.head
             Este es su panel de control. Desde aqui observe la ultia actividad en su taller.
-      -#.col-xs-6.col-md-3
-        -#%h4
-          -#= link_to new_client_path, class: "a addResource" do
-            -#%span.glyphicon.glyphicon-plus
-            -#Cliente
-      -#.col-xs-6.col-md-3
-        -#%h4
-          -#= link_to new_car_path, class: "a addResource" do
-            -#%span.glyphicon.glyphicon-plus
-            -#Automovil
-      -#.col-xs-6.col-md-3
-        -#%h4
-          -#= link_to new_worker_path, class: "a addResource" do
-            -#%span.glyphicon.glyphicon-plus
-            -#Trabajador
   .row
     .col-md-6
       %h4
@@ -46,6 +31,7 @@
         %thead
           %th Referencia
           %th Estado
-          %th Fecha
+          %th Fecha Ingreso
+          %th Actualizacion
         %tbody
           = render jobs
