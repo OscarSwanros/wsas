@@ -13,7 +13,7 @@
   %td= job.created_at.strftime("%B %-d, %Y, %H:%M")
   %td= job.updated_at.strftime("%B %-d, %Y, %H:%M")
   - if params[:controller] != "welcome"
-    %td= job.comments
+    %td= truncate(job.comments, length: 50)
     %td
       .btn-group
         %button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
