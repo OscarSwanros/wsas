@@ -1,0 +1,30 @@
+.container
+  .page-header
+    %h2
+      %span.glyphicon.glyphicon-search
+      = job.car_id
+      %small.lead Detalles de este trabajo
+  .row
+    .col-xs-12.col-sm-6.col-md-1
+    .col-xs-6.col-md-11
+      %strong Comentario
+      %br
+      = job.comments
+      %br
+      %br
+      %strong Estado del trabajo:
+      %br
+      = job.state.capitalize
+      .btn-group
+        %button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+          Actualizar Estado
+          %span.caret
+        %ul.dropdown-menu{:role => "menu"}
+          %li
+            %a{:href => ""} Uno
+      %br
+      %br
+      = link_to 'Eliminar Trabajo', jobs_path(job),
+        method: :delete,
+        data: { confirm: 'Seguro que deseas eliminar el automovil?' },
+        class: 'btn btn-danger btn-xs'

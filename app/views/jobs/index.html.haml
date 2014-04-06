@@ -1,0 +1,22 @@
+.container
+  .page-header
+    .row
+      .col-xs-6.col-md-11
+        %h3
+          %span.glyphicon.glyphicon-user
+          Trabajos
+      .col-xs-6.col-md-1
+        %h4
+          = link_to new_job_path, class: "a addResource" do
+            %span.glyphicon.glyphicon-plus
+  %br
+  %table.table.dataTable.table-hover
+    %thead
+      %tr
+        %th Numero de Reporte
+        %th Estado
+        %th Fecha
+        %th Comentarios
+        %th Menu
+    %tbody
+      = render jobs
