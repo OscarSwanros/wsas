@@ -2,6 +2,7 @@
   %td= client.id
   %td= link_to "#{client.name}", client_path(client)
   %td= client.phone
+  %td= client.email
   - if params[:controller] != "welcome"
     %td= client.address
     %td= client.zip

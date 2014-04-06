@@ -7,9 +7,10 @@
       %ul
         - client.errors.full_messages.each do |msg|
           %li= msg
-  = f.input :name, placeholder: "Nombre del Cliente", label: 'Nombre: '
-  = f.input :address, placeholder: "Direccion del cliente", label: 'Direccion: '
-  = f.input :zip, label: 'Codigo Postal: '
-  = f.input :phone, placeholder: "XXX-XX-X-XX-XX", label: 'Telefono: '
-  = f.input :rfc, label: 'RFC:'
+  = f.input :name, placeholder: "Nombre del Cliente", label: 'Nombre:'
+  = f.input :address, placeholder: "Direccion del cliente", label: 'Direccion:'
+  = f.input :zip, label: 'Codigo Postal:', placeholder: "28000"
+  = f.input :phone, placeholder: "312 31 00 11 88", label: 'Telefono:'
+  = f.input :rfc, label: 'RFC:', placeholder: "RFC del cliente"
+  = f.input :email, label: 'Correo electronico:', placeholder: "cliente@hotmail.com"
   = f.submit 'Guardar Cliente', class: 'btn btn-success'
