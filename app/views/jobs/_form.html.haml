@@ -1,0 +1,13 @@
+= simple_form_for job, html: { class: "form-horizontal" } do |f|
+  - if job.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(job.errors.count, "error")
+        prohibited this job from being saved:
+      %ul
+        - job.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :car_id, collection: cars, prompt: "Seleccione el automovil", :required => true, label: "Automovil:"
+  = f.input :comments, placeholder: "Ingrese los comentarios", label: "Comentarios/descripcion del trabajo:"
+  = f.input :report_number, placeholder: "Ingrese el numero de reporte", label: "Numero de reporte:"
+  = f.submit 'Guardar Reporte', class: 'btn btn-success'

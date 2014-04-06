@@ -1,8 +1,10 @@
 Wsas::Application.routes.draw do
   devise_for :users
+
   resources :clients
   resources :cars
   resources :workers
+  resources :jobs
 
   namespace :api do
     namespace :v1 do
@@ -10,5 +12,5 @@ Wsas::Application.routes.draw do
     end
   end
 
-  root to: "clients#index"
+  root to: "welcome#index"
 end

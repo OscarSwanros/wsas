@@ -25,6 +25,7 @@ gem 'simple_form'
 gem 'title'
 gem 'uglifier'
 gem 'unicorn'
+gem 'aasm', '~> 3.1.1'
 
 group :development do
   gem 'better_errors'
