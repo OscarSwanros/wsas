@@ -4,6 +4,7 @@ class Client < ActiveRecord::Base
   validates :zip, presence: true
   validates :phone, presence: true
   validates :rfc, presence: true
+  validates :email, presence: true
 
   has_many :cars
 end
