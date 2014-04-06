@@ -1,29 +1,25 @@
 .container
   .page-header
-    %h2
-      %span.glyphicon.glyphicon-search
-      Automoviles
-      %small.lead Esta es la lista de los automoviles de sus clientes
-    %table.table.table-striped
-      .row
-        .col-xs-6.col-md-2
-          - if clients.count > 0
-            = link_to 'Agregar Automovil', new_car_path, class: "btn btn-success btn-block"
-          - else
-            = link_to 'Agregar Cliente', new_client_path, class: "btn btn-danger btn-block"
-        .col-xs-5.col-md-9
-          %small.lead
-            = render text: "No tiene agregado ningun cliente. Agregue un cliente para poder asignarle automoviles" unless clients.count > 0
-      %br
-      %thead
-        %tr
-          %th Modelo
-          %th Marca
-          %th Tipo de Automovil
-          %th Color
-          %th Kilometraje
-          %th Placas
-          %th Dueño
-          %th Acciones
-      %tbody
-        = render cars
+    .row
+      .col-xs-6.col-md-11
+        %h3
+          %span.glyphicon.glyphicon-user
+          Automoviles
+      .col-xs-6.col-md-1
+        %h4
+          = link_to new_car_path, class: "a addResource" do
+            %span.glyphicon.glyphicon-plus
+  %br
+  %table.table.dataTable.table-hover
+    %thead
+      %tr
+        %th Modelo
+        %th Marca
+        %th Tipo de Automovil
+        %th Color
+        %th Kilometraje
+        %th Placas
+        %th Dueño
+        %th Acciones
+    %tbody
+      = render cars

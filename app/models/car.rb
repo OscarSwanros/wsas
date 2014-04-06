@@ -8,6 +8,10 @@ class Car < ActiveRecord::Base
 
   belongs_to :client
 
+  def to_s
+    "Placas #{plates}"
+  end
+
   delegate :name,
            :to  => :client,
            :prefix => true

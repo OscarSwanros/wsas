@@ -1,21 +1,24 @@
 .container
   .page-header
-    %h2
-      %span.glyphicon.glyphicon-user
-      Clientes
-      %small.lead Esta es la lista de todos sus clientes
-    %table#clients.table.table-striped
-      .row
-        .col-xs-6.col-md-2
-          = link_to 'Agregar Cliente', new_client_path, class: "btn btn-success btn-block"
-      %br
-      %thead
-        %tr
-          %th Nombre
-          %th Direccion
-          %th CP
-          %th Telefono
-          %th RFC
-          %th Acciones
-      %tbody
-        = render clients
+    .row
+      .col-xs-6.col-md-11
+        %h3
+          %span.glyphicon.glyphicon-user
+          Clientes
+      .col-xs-6.col-md-1
+        %h4
+          = link_to new_client_path, class: "a addResource" do
+            %span.glyphicon.glyphicon-plus
+  %br
+  %table.table.dataTable.table-hover
+    %thead
+      %tr
+        %th Id
+        %th Nombre
+        %th Telefono
+        %th Direccion
+        %th CP
+        %th RFC
+        %th Acciones
+    %tbody
+      = render clients

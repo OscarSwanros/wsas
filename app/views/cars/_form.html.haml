@@ -10,9 +10,9 @@
 
   = f.input :model, placeholder: "El modelo del automovil", label: 'Modelo:'
   = f.input :brand, placeholder: "La marca del automovil", label: 'Marca:'
-  = f.input :car_type, collection: ['Sedan', 'Hashback', 'Camioneta Pickup', 'Camioneta Cerrada'], prompt: "Seleccione el tipo del automovil", label: 'Tipo de Automovil:'
+  = f.input :car_type, placeholder: "Tipo de Automovil", label: "Tipo de Automovil:"
   = f.input :color, placeholder: "Seleccione el color del automovil", label: 'Color:'
   = f.input :kms, placeholder: "Numero de kilometros recorridos por el automovil", label: 'Kilometraje'
   = f.input :plates, placeholder: "Las placas del automovil", label: 'Placas'
-  = f.input :client_id, collection: clients, prompt: "Seleccione el cliente", :required => true
+  = f.input :client_id, collection: clients, prompt: "Seleccione el cliente", :required => true, label: "Cliente:"
   = f.submit 'Guardar Automovil', class: 'btn btn-success'
