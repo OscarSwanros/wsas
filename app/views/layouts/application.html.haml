@@ -24,6 +24,9 @@
                     = link_to 'Automóviles', cars_path
                   %li
                     = link_to 'Trabajadores', workers_path
+                  %li.divider
+                  %li
+                    = link_to 'Trabajos', jobs_path
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               %li
