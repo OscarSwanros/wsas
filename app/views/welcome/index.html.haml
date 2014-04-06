@@ -1,0 +1,51 @@
+.container
+  .page-header
+    .row
+      .col-xs-6.col-md-9
+        %h3
+          %span.glyphicon.glyphicon-cog
+          Panel de Control
+          %br
+          %br
+          %small.head
+            Este es su panel de control. Desde aqui observe la ultia actividad en su taller.
+      -#.col-xs-6.col-md-3
+        -#%h4
+          -#= link_to new_client_path, class: "a addResource" do
+            -#%span.glyphicon.glyphicon-plus
+            -#Cliente
+      -#.col-xs-6.col-md-3
+        -#%h4
+          -#= link_to new_car_path, class: "a addResource" do
+            -#%span.glyphicon.glyphicon-plus
+            -#Automovil
+      -#.col-xs-6.col-md-3
+        -#%h4
+          -#= link_to new_worker_path, class: "a addResource" do
+            -#%span.glyphicon.glyphicon-plus
+            -#Trabajador
+  .row
+    .col-md-6
+      %h4
+        Clientes
+        = link_to clients_path do
+          %span.glyphicon.glyphicon-arrow-right
+      %table.table.table-stripped
+        %thead
+          %th Id
+          %th Nombre
+          %th Telefono
+        %tbody
+          = render clients
+    .col-md-6
+      %h4
+        Trabajos
+        = link_to jobs_path do
+          %span.glyphicon.glyphicon-arrow-right
+      %table.table
+        %thead
+          %th Referencia
+          %th Estado
+          %th Fecha
+        %tbody
+          = render jobs
