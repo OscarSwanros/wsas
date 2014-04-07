@@ -6,7 +6,10 @@ class ExpensesController < ApplicationController
 
   def create
     if expense.save
-      redirect_to expense
+      expense.job.updated_at = Time.now
+      if expense.job.save
+        redirect_to expense
+      end
     else
        render 'new'
     end
@@ -14,7 +17,10 @@ class ExpensesController < ApplicationController
 
   def update
     if expense.update(expense_params)
-      redirect_to expense
+      expense.job.updated_at = Time.now
+      if expense.job.save
+        redirect_to expense
+      end
     else
       render 'edit'
     end
