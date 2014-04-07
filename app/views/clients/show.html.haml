@@ -2,37 +2,42 @@
   .page-header
     %h2
       %span.glyphicon.glyphicon-user
-      = client.name
-      %small.lead Mostrando detalles del usuario
+      Perfil de cliente
+      %small.lead Mostrando detalles del cliente
   .row
-    .col-xs-12.col-sm-6.col-md-1
-    .col-xs-6.col-md-11
-      %strong Direccion:
+    .col-md-4
+      %h4 Detalles de Cliente
+      = link_to edit_client_path(client) do
+        %span.glyphicon.glyphicon-pencil
+        Editar
       %br
-      = client.address
+      %dl.dl-horizontal
+        %dt Nombre
+        %dd= client.name
+        %br
+        %dt Telefono
+        %dd= client.phone
+        %dt Direccion
+        %dd= client.address
+        %dt Correo
+        %dd
+          %a{href: "mailto:#{client.email}"}
+            = client.email
+        %br
+        %dd
+    .col-md-4
+      %h4 Automoviles del Cliente
+      = link_to new_car_path(:client_id => client.id), class: "a add" do
+        %span.glyphicon.glyphicon-plus
+        Agregar Automovil
       %br
-      %br
-      %strong CP:
-      %br
-      = client.zip
-      %br
-      %br
-      %strong Telefono:
-      %br
-      = client.phone
-      %br
-      %br
-      %strong RFC:
-      %br
-      = client.rfc
-      %br
-      %br
-      = link_to 'Eliminar Cliente', client_path(client),
-        method: :delete,
-        data: { confirm: 'Seguro que deseas eliminar el cliente?' },
-        class: 'btn btn-danger btn-xs'
-      %br
-      %br
-      Number of cars:
-      = cars.count
-
+      %table.table.table-hover
+        %thead
+          %th Id
+          %th Modelo
+          %th Marca
+          %th Tipo
+        %tbody
+          = render cars
+  %br
+  %br

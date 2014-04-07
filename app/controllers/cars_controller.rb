@@ -2,6 +2,7 @@ class CarsController < ApplicationController
   expose(:cars)
   expose(:car, attributes: :car_params)
   expose(:clients) { Client.all }
+  expose(:client) { Client.find(params[:client_id]) if params[:client_id] }
 
   def create
     if car.save

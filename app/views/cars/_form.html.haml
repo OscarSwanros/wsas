@@ -14,5 +14,9 @@
   = f.input :color, placeholder: "Seleccione el color del automovil", label: 'Color:'
   = f.input :kms, placeholder: "Numero de kilometros recorridos por el automovil", label: 'Kilometraje'
   = f.input :plates, placeholder: "Las placas del automovil", label: 'Placas'
-  = f.input :client_id, collection: clients, prompt: "Seleccione el cliente", :required => true, label: "Cliente:"
+  - if client
+    = f.input :client_id, as: :hidden, input_html: { value: client.id }
+    = f.input :client_id, collection: 1..2, prompt: "#{client.name}", label: "Cliente:", disabled: true
+  - else
+    = f.input :client_id, collection: clients, prompt: "Seleccione el cliente", required: true, label: "Cliente:"
   = f.submit 'Guardar Automovil', class: 'btn btn-success'
