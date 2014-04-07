@@ -2,7 +2,7 @@
   .page-header
     %h2
       %span.glyphicon.glyphicon-search
-      Perfil del trabajo
+      Detalles del trabajo
       = job.report_number
   .row
     .col-md-4
@@ -10,6 +10,7 @@
       = link_to edit_job_path(job) do
         %span.glyphicon.glyphicon-pencil
         Editar Trabajo
+      %br
       %br
       %dl.dl-horizontal
         %dt Cliente
@@ -51,6 +52,23 @@
                 - when "paused"
                   %li
                     = link_to "Reiniciar Trabajo", controller: "jobs", action: :update_status, new_status: 4
-
-
     .col-md-4
+      %h4 Gastos en este trabajo
+      - if job.state != "finished"
+        = link_to new_expense_path(job_id: job.id) do
+          %span.glyphicon.glyphicon-plus
+          Agregar gasto
+        %br
+        %br
+      %table.table.table-hover
+        %thead
+          %th Id
+          %th Descripcion
+          %th Costo
+          %th Comprador
+        %tbody
+          = render expenses
+    .col-md-4
+      %h4 Inversion total en este trabajo:
+      %h2
+        = number_to_currency(job.total_cost)

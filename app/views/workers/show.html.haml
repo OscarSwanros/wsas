@@ -5,11 +5,22 @@
       = worker.name
       %small.lead= worker.worker_type
   .row
-    .col-xs-12.col-sm-6.col-md-1
-    .col-xs-6.col-md-11
+    .col-md-4
+      %h4 Detalles
       %br
       %br
-      = link_to 'Eliminar Trabajador', worker_path(worker),
-        method: :delete,
-        data: { confirm: 'Seguro que deseas eliminar este trabajador?' },
-        class: 'btn btn-danger btn-xs'
+      .dl.dl-horizontal
+        %dt Algo
+        %dd Algo Mas
+    .col-md-4
+      %h4 Gastos de este empleado
+      %br
+      %br
+      %table.table.table-hover
+        %thead
+          %th Id
+          %th Descripcion
+          %th Costo
+          %th Trabajo
+        %tbody
+          = render expenses

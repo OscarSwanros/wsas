@@ -5,24 +5,23 @@
       = car.model
       %small.lead= car.brand
   .row
-    .col-xs-12.col-sm-6.col-md-1
-    .col-xs-6.col-md-11
-      %strong Tipo de Automovil:
-      %br
-      = car.car_type
-      %br
-      %br
-      %strong Kilometraje:
-      %br
-      = pluralize(car.kms, 'km', 'kms')
+    .col-md-4
+      %h4 Detalles del Automovil
+      =link_to edit_car_path(car) do
+        %span.glyphicon.glyphicon-pencil
+        Editar
       %br
       %br
-      %strong Placas:
-      %br
-      = car.plates.upcase
-      %br
-      %br
-      = link_to 'Eliminar Automovil', car_path(car),
-        method: :delete,
-        data: { confirm: 'Seguro que deseas eliminar el automovil?' },
-        class: 'btn btn-danger btn-xs'
+      %dl.dl-horizontal
+        %dt Tipo
+        %dd= car.car_type
+        %dt Marca
+        %dd= car.brand
+        %dt Modelo
+        %dd= car.model
+        %dt Kilometraje
+        %dd= pluralize(car.kms, 'km', 'kms')
+        %dt Placas
+        %dd= car.plates.upcase
+        %dt Dueno
+        %dd= link_to "#{car.client_name}", client_path(car.client)
