@@ -30,7 +30,8 @@ class WorkersController < ApplicationController
   def worker_params
     params.require(:worker).permit(
       :name,
-      :worker_type
+      :worker_type,
+      :comission
     )
   end
 end
