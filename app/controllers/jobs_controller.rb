@@ -54,7 +54,9 @@ class JobsController < ApplicationController
       :worker_id,
       :comments,
       :state,
-      :report_number
+      :report_number,
+      :quote,
+      :worker_ids => []
     )
   end
 end
