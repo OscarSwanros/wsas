@@ -2,16 +2,22 @@
   .page-header
     %h2
       %span.glyphicon.glyphicon-search
-      = worker.name
-      %small.lead= worker.worker_type
+      Detalles del Trabajador
   .row
     .col-md-4
       %h4 Detalles
+      = link_to edit_worker_path(worker) do
+        %span.glyphicon.glyphicon-pencil
+        Editar Trabajador
       %br
       %br
       .dl.dl-horizontal
-        %dt Algo
-        %dd Algo Mas
+        %dt Nombre
+        %dd= worker.name
+        %dt Porcentaje por trabajo
+        %dd= "#{worker.comission}%"
+        %dt Puesto
+        %dd= worker.worker_type
     .col-md-4
       %h4 Gastos de este empleado
       %br

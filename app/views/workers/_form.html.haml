@@ -10,5 +10,6 @@
 
   = f.input :name, placeholder: "Ingrese el nombre del trabajador", label: 'Nombre del trabjador:', required: true
   = f.input :worker_type, collection: %w{Pintor Laminero}, prompt: "Seleccione el tipo de trabajador", label: 'Tipo de trabajador:', required: true
+  = f.input :comission, placeholder: "% % %", label: "Comision del trabajador (%): ", required: true
   = f.submit 'Guardar Trabajador', class: 'btn btn-success'
 
