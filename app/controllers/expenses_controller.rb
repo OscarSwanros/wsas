@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   expose(:expenses)
   expose(:expense, attributes: :expense_params)
   expose(:job) { Job.find(params[:job_id]) if params[:job_id] }
-  expose(:workers) { Worker.all }
+  expose(:workers) { job.workers }
 
   def create
     if expense.save
