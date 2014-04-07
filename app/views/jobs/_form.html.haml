@@ -7,8 +7,10 @@
       %ul
         - job.errors.full_messages.each do |msg|
           %li= msg
-  = f.input :report_number, placeholder: "Ingrese el numero de reporte", label: "Numero de reporte:"
-  = f.input :car_id, collection: cars, prompt: "Seleccione el automovil", :required => true, label: "Automovil:"
-  = f.input :worker_id, collection: workers, prompt: "Seleccione un trabajdor: ", required: true, label: "Trabajador: "
-  = f.input :comments, placeholder: "Ingrese los comentarios", label: "Comentarios/descripcion del trabajo:"
+  = f.input :report_number, placeholder: "Ingrese el numero de reporte", label: "Numero de reporte:", required: true
+  = f.input :car_id, collection: cars, prompt: "Seleccione el automovil", required: true, label: "Automovil:"
+  = f.association :workers, collection: workers, required: true, label: "Trabajadores: ", as: :check_boxes, required: true
+  %br
+  = f.input :quote, placeholder: "Presupuesto al cliente", label: "Presupuesto al cliente", required: true
+  = f.input :comments, placeholder: "Ingrese los comentarios", label: "Comentarios/descripcion del trabajo:", required: true
   = f.submit 'Guardar Trabajo', class: 'btn btn-success'

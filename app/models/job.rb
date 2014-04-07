@@ -2,9 +2,15 @@ class Job < ActiveRecord::Base
   include AASM
 
   has_many :expenses
+  has_many :works
+  has_many :workers, through: :works
 
   def total_cost
     expenses.map(&:cost).sum
+  end
+
+  def subtotal
+    self.quote - total_cost
   end
 
   aasm column: :state do
