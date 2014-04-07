@@ -8,6 +8,7 @@
         - worker.errors.full_messages.each do |msg|
           %li= msg
 
-  = f.input :name, placeholder: "Ingrese el nombre del trabajador", label: 'Nombre del trabjador:'
-  = f.input :worker_type, collection: %w{Pintor Laminero}, prompt: "Seleccione el tipo de trabajador", label: 'Tipo de trabajador:'
+  = f.input :name, placeholder: "Ingrese el nombre del trabajador", label: 'Nombre del trabjador:', required: true
+  = f.input :worker_type, collection: %w{Pintor Laminero}, prompt: "Seleccione el tipo de trabajador", label: 'Tipo de trabajador:', required: true
   = f.submit 'Guardar Trabajador', class: 'btn btn-success'
+
