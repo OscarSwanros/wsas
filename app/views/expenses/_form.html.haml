@@ -1,0 +1,16 @@
+= simple_form_for expense, html: { class: "form-horizontal" } do |f|
+  - if expense.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(expense.errors.count, "error")
+        prohibited this job from being saved
+      %ul
+        - job.errors.full_messages.each do |msg|
+          %li= msg
+  = f.input :description, placeholder: "Descripcion del gasto", label: "Descripcion:", required: true
+  = f.input :cost, placeholder: "Costo", label: "Costo: ", required: true
+  - if job
+    = f.input :job_id, as: :hidden, input_html: { value: job.id }
+    = f.input :job_id, collection: 1..2, prompt: "Trabajo #{job.report_number}", required: true, disabled: true, label: "Trabajo:"
+  = f.input :worker_id, collection: workers, prompt: "Seleccione el trabajador que realizo la compra", required: true, label: "Trabajador"
+  = f.submit 'Guardar Gasto', class: 'btn btn-success'

@@ -1,0 +1,20 @@
+.container
+  .page-header
+    %h2
+      %span.glyphicon.glyphicon-search
+      Detalles del gasto
+  .row
+    .col-md-4
+      %h4 Detalles
+      %br
+      %dl.dl-horizontal
+        %dt Costo
+        %dd= number_to_currency(expense.cost)
+        %dt Comprado por
+        %dd= link_to "#{expense.worker_name}", worker_path(expense.worker)
+    .col-md-4
+      %h4 Trabajo
+      %br
+      %dl.dl-horizontal
+        %dt Trabajo
+        %dd= link_to "#{expense.job_report_number}", job_path(expense.job)

@@ -1,0 +1,8 @@
+%tr
+  %td= link_to "#{expense.id}", expense_path(expense)
+  %td= truncate(expense.description, lenght: 30)
+  %td= number_to_currency(expense.cost)
+  - if params[:controller] != "workers"
+    %td= link_to "#{expense.worker_name}", worker_path(expense.worker)
+  - if params[:controller] != "jobs"
+    %td= link_to "#{expense.job_report_number}", job_path(expense.job)

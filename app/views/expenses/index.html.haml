@@ -1,0 +1,18 @@
+.container
+  .page-header
+    .row
+      .col-xs-6.col-md-11
+        %h3
+          %span.glyphicon.glyphicon-user
+          Gastos
+  %br
+  %table.table.dataTable.table-hover
+    %thead
+      %tr
+        %th Id
+        %th Descripcion
+        %th Costo
+        %th Comprado por
+        %th Trabajo
+    %tbody
+      = render expenses
