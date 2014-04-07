@@ -8,15 +8,15 @@
         - car.errors.full_messages.each do |msg|
           %li= msg
 
-  = f.input :model, placeholder: "El modelo del automovil", label: 'Modelo:'
-  = f.input :brand, placeholder: "La marca del automovil", label: 'Marca:'
-  = f.input :car_type, placeholder: "Tipo de Automovil", label: "Tipo de Automovil:"
-  = f.input :color, placeholder: "Seleccione el color del automovil", label: 'Color:'
-  = f.input :kms, placeholder: "Numero de kilometros recorridos por el automovil", label: 'Kilometraje'
-  = f.input :plates, placeholder: "Las placas del automovil", label: 'Placas'
+  = f.input :model, placeholder: "El modelo del automovil", label: 'Modelo:', required: true
+  = f.input :brand, placeholder: "La marca del automovil", label: 'Marca:', required: true
+  = f.input :car_type, placeholder: "Tipo de Automovil", label: "Tipo de Automovil:", required: true
+  = f.input :color, placeholder: "Seleccione el color del automovil", label: 'Color:', required: true
+  = f.input :kms, placeholder: "Numero de kilometros recorridos por el automovil", label: 'Kilometraje', required: true
+  = f.input :plates, placeholder: "Las placas del automovil", label: 'Placas', required: true
   - if client
     = f.input :client_id, as: :hidden, input_html: { value: client.id }
     = f.input :client_id, collection: 1..2, prompt: "#{client.name}", label: "Cliente:", disabled: true
   - else
-    = f.input :client_id, collection: clients, prompt: "Seleccione el cliente", required: true, label: "Cliente:"
+    = f.input :client_id, collection: clients, prompt: "Seleccione el cliente", required: true, label: "Cliente:", required: true
   = f.submit 'Guardar Automovil', class: 'btn btn-success'
