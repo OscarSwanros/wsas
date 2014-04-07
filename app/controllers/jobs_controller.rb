@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   expose(:cars) { Car.all }
   expose(:workers) { Worker.all }
   expose(:car) { Car.find(job.car_id) }
+  expose(:expenses) { Expense.where(job_id: job.id) }
 
   def create
     if job.save

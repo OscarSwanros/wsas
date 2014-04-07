@@ -2,6 +2,7 @@ class WorkersController < ApplicationController
   expose(:workers)
   expose(:worker, attributes: :worker_params)
   expose(:cars) { Car.all }
+  expose(:expenses) { Expense.where(worker_id: worker.id) }
 
   def create
     if worker.save
