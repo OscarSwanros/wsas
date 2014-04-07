@@ -4,6 +4,7 @@ Wsas::Application.routes.draw do
   resources :clients
   resources :cars
   resources :workers
+  resources :expenses
   resources :jobs do
     member do
       get 'update_status'
