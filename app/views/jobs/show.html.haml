@@ -54,7 +54,7 @@
                     = link_to "Reiniciar Trabajo", controller: "jobs", action: :update_status, new_status: 4
     .col-md-4
       %h4 Gastos en este trabajo
-      - if job.state != "finished"
+      - if job.state != "finished" && job.state != "pending" && job.state != "paused"
         = link_to new_expense_path(job_id: job.id) do
           %span.glyphicon.glyphicon-plus
           Agregar gasto
