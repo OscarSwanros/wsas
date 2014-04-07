@@ -1,6 +1,12 @@
 class Job < ActiveRecord::Base
   include AASM
 
+  has_many :expenses
+
+  def total_cost
+    expenses.map(&:cost).sum
+  end
+
   aasm column: :state do
     state :pending, :initial => true
     state :running

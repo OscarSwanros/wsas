@@ -12,10 +12,6 @@ class Car < ActiveRecord::Base
     "Placas: #{self.plates}, Cliente: #{client.name}"
   end
 
-  def client_name
-    "#{self.client.name}"
-  end
-
   delegate :name,
            :to  => :client,
            :prefix => true
