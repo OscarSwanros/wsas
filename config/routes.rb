@@ -4,7 +4,11 @@ Wsas::Application.routes.draw do
   resources :clients
   resources :cars
   resources :workers
-  resources :jobs
+  resources :jobs do
+    member do
+      get 'update_status'
+    end
+  end
 
   namespace :api do
     namespace :v1 do

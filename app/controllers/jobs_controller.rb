@@ -2,12 +2,33 @@ class JobsController < ApplicationController
   expose(:jobs)
   expose(:job, attributes: :job_params)
   expose(:cars) { Car.all }
+  expose(:workers) { Worker.all }
+  expose(:car) { Car.find(job.car_id) }
 
   def create
     if job.save
       redirect_to job
     else
        render 'new'
+    end
+  end
+
+  def update_status
+    new_status = params[:new_status]
+
+    case new_status
+    when "2"
+      job.start
+    when "3"
+      job.pause
+    when "4"
+      job.restart
+    when "5"
+      job.finish
+    end
+
+    if job.save
+      redirect_to job
     end
   end
 

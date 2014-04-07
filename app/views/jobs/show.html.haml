@@ -2,29 +2,55 @@
   .page-header
     %h2
       %span.glyphicon.glyphicon-search
-      = job.car_id
-      %small.lead Detalles de este trabajo
+      Perfil del trabajo
+      = job.report_number
   .row
-    .col-xs-12.col-sm-6.col-md-1
-    .col-xs-6.col-md-11
-      %strong Comentario
+    .col-md-4
+      %h4 Detalles del Trabajo
+      = link_to edit_job_path(job) do
+        %span.glyphicon.glyphicon-pencil
+        Editar Trabajo
       %br
-      = job.comments
-      %br
-      %br
-      %strong Estado del trabajo:
-      %br
-      = job.state.capitalize
-      .btn-group
-        %button.btn.btn-default.btn-xs.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
-          Actualizar Estado
-          %span.caret
-        %ul.dropdown-menu{:role => "menu"}
-          %li
-            %a{:href => ""} Uno
-      %br
-      %br
-      = link_to 'Eliminar Trabajo', jobs_path(job),
-        method: :delete,
-        data: { confirm: 'Seguro que deseas eliminar el automovil?' },
-        class: 'btn btn-danger btn-xs'
+      %dl.dl-horizontal
+        %dt Cliente
+        %dd= car.client_name
+        %dt Automovil
+        %dd= car.plates
+        %dd= car.model
+        %dd= car.brand
+        %br
+        %dt Estado del Trabajo
+        %dd
+          - case job.state
+          - when "pending"
+            %span.label.label-default Pendiente
+          - when "running"
+            %span.label.label-info En Proceso
+          - when "paused"
+            %span.label.label-warning Pausado
+          - when "finished"
+            %span.label.label-success Finalizado
+        %br
+        - if job.state != "finished"
+          %dt Actualizar estado
+          %dd
+            .btn-group
+              %button.btn.btn-xs.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                Actualizar
+                %span.caret
+              %ul.dropdown-menu{:role => "menu"}
+                - case job.state
+                - when "pending"
+                  %li
+                    = link_to "Iniciar Trabajo", controller: "jobs", action: :update_status, new_status: 2
+                - when "running"
+                  %li
+                    = link_to "Pausar Trabajo", controller: "jobs", action: :update_status, new_status: 3
+                  %li
+                    = link_to "Finalizar Trabajo", controller: "jobs", action: :update_status, new_status: 5
+                - when "paused"
+                  %li
+                    = link_to "Reiniciar Trabajo", controller: "jobs", action: :update_status, new_status: 4
+
+
+    .col-md-4

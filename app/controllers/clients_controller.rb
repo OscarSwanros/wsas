@@ -32,7 +32,8 @@ class ClientsController < ApplicationController
       :address,
       :zip,
       :phone,
-      :rfc
+      :rfc,
+      :email
     )
   end
 end

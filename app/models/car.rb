@@ -9,7 +9,11 @@ class Car < ActiveRecord::Base
   belongs_to :client
 
   def to_s
-    "Placas #{plates}"
+    "Placas: #{self.plates}, Cliente: #{client.name}"
+  end
+
+  def client_name
+    "#{self.client.name}"
   end
 
   delegate :name,

@@ -7,7 +7,8 @@
       %ul
         - job.errors.full_messages.each do |msg|
           %li= msg
-  = f.input :car_id, collection: cars, prompt: "Seleccione el automovil", :required => true, label: "Automovil:"
-  = f.input :comments, placeholder: "Ingrese los comentarios", label: "Comentarios/descripcion del trabajo:"
   = f.input :report_number, placeholder: "Ingrese el numero de reporte", label: "Numero de reporte:"
-  = f.submit 'Guardar Reporte', class: 'btn btn-success'
+  = f.input :car_id, collection: cars, prompt: "Seleccione el automovil", :required => true, label: "Automovil:"
+  = f.input :worker_id, collection: workers, prompt: "Seleccione un trabajdor: ", required: true, label: "Trabajador: "
+  = f.input :comments, placeholder: "Ingrese los comentarios", label: "Comentarios/descripcion del trabajo:"
+  = f.submit 'Guardar Trabajo', class: 'btn btn-success'
