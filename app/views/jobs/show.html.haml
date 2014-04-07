@@ -70,5 +70,31 @@
           = render expenses
     .col-md-4
       %h4 Inversion total en este trabajo:
-      %h2
+      %h2{align: "right"}
         = number_to_currency(job.total_cost)
+      %br
+      %h4 Cotizacion al cliente:
+      %h2{align: "right"}
+        = number_to_currency(job.quote)
+      %h4{align: "right", class: currency_color(job.quote, job.total_cost)}
+        Subtotal:
+        = number_to_currency(job.subtotal)
+      %h4
+        Desglose de Porcentajes
+      %br
+      %table.table.table-hover
+        %thead
+          %th Id
+          %th Nombre
+          %th $
+        %tbody
+        - job.workers.each do |worker|
+          %tr
+            %td= worker.id
+            %td= link_to "#{worker.name} - #{worker.comission}%", worker_path(worker)
+            %td= number_to_currency(job.subtotal * (worker.comission/100))
+      %br
+      %h2{align: "right", class: currency_color(job.quote, job.after_breakdown)}
+        Ganancias:
+        = number_to_currency(job.after_breakdown)
+
