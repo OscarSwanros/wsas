@@ -13,6 +13,10 @@ class Job < ActiveRecord::Base
     self.quote - total_cost
   end
 
+  def after_breakdown
+    subtotal - subtotal * ((workers.map(&:comission).sum)/100)
+  end
+
   aasm column: :state do
     state :pending, :initial => true
     state :running
