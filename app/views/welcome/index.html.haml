@@ -6,15 +6,48 @@
           %span.glyphicon.glyphicon-cog
           Panel de Control
           %br
-          %br
-          %small.head
+          %small.lead
             Este es su panel de control. Desde aqui observe la ultima actividad en su taller.
+          %br
+          %br
+    .row
+      .col-md-6
+        %h3{align: "center"}
+          Invertido Hoy
+        %h1{align: "center"}
+          = number_to_currency(@total_investment)
+      .col-md-6
+        %h3{align: "center"}
+          Presupuestos de Hoy
+        %h1{align: "center"}
+          = number_to_currency(@total_quotes)
+    %br
+    .row
+      .col-md-1
+      .col-md-10
+        %h4
+          Trabajos
+          = link_to jobs_path do
+            %span.glyphicon.glyphicon-arrow-right
+              %br
+          %small.head Estos son los trabajos con cambios recientes
+        %table.table
+          %thead
+            %th Referencia
+            %th Estado
+            %th Fecha Ingreso
+            %th Actualizacion
+            %th Descripcion
+          %tbody
+            = render jobs
   .row
     .col-md-6
       %h4
         Clientes
         = link_to clients_path do
           %span.glyphicon.glyphicon-arrow-right
+            %br
+          %small.had Los ultimos clientes que se han agregado
       %table.table.table-stripped
         %thead
           %th Id
@@ -25,14 +58,16 @@
           = render clients
     .col-md-6
       %h4
-        Trabajos
-        = link_to jobs_path do
+        Trabajadores
+        = link_to workers_path do
           %span.glyphicon.glyphicon-arrow-right
-      %table.table
+            %br
+          %small.had La lista de sus trabajadores
+      %table.table.table-stripped
         %thead
-          %th Referencia
-          %th Estado
-          %th Fecha Ingreso
-          %th Actualizacion
+          %th Id
+          %th Nombre
+          %th Puesto
         %tbody
-          = render jobs
+          = render workers
+    .col-md-6
