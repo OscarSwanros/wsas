@@ -12,6 +12,7 @@
       %span.label.label-success Finalizado
   %td= job.created_at.strftime("%B %-d, %Y, %H:%M")
   %td= job.updated_at.strftime("%B %-d, %Y, %H:%M")
+  %td= job.update_description
   - if params[:controller] != "welcome"
     %td= truncate(job.comments, length: 50)
     %td
@@ -27,3 +28,4 @@
                 -#method: :delete,
                 -#data:{ confirm: 'Are you sure?' },
                 -#class: 'label-danger'
+
