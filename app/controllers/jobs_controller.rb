@@ -20,12 +20,16 @@ class JobsController < ApplicationController
     case new_status
     when "2"
       job.start
+      job.update_description= "Se inicio el trabajo"
     when "3"
       job.pause
+      job.update_description = "Se pauso el trabajo"
     when "4"
       job.restart
+      job.update_description = "Se reinicio el trabajo"
     when "5"
       job.finish
+      job.update_description = "Se finalizo el trabajo"
     end
 
     if job.save
@@ -56,7 +60,7 @@ class JobsController < ApplicationController
       :state,
       :report_number,
       :quote,
-      :worker_ids => []
+      :worker_ids => [],
     )
   end
 end
