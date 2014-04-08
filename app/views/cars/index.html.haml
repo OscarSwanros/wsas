@@ -7,8 +7,14 @@
           Automoviles
       .col-xs-6.col-md-1
         %h4
+        - if clients.count > 0
           = link_to new_car_path, class: "a addResource" do
             %span.glyphicon.glyphicon-plus
+            %span.glyphicon.glyphicon-road
+        - else
+          = link_to new_client_path, class: "a danger" do
+            %span.glyphicon.glyphicon-plus
+            %span.glyphicon.glyphicon-user
   %br
   %table.table.dataTable.table-hover
     %thead

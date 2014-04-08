@@ -6,9 +6,16 @@
           %span.glyphicon.glyphicon-user
           Trabajos
       .col-xs-6.col-md-1
+      - if cars.count > 0
         %h4
           = link_to new_job_path, class: "a addResource" do
             %span.glyphicon.glyphicon-plus
+            %span.glyphicon.glyphicon-briefcase
+      - else
+        %h4
+          = link_to cars_path, class: "a danger" do
+            %span.glyphicon.glyphicon-plus
+            %span.glyphicon.glyphicon-road
   %br
   %table.table.dataTable.table-hover
     %thead
