@@ -12,6 +12,8 @@
         %dd= number_to_currency(expense.cost)
         %dt Comprado por
         %dd= link_to "#{expense.worker_name}", worker_path(expense.worker)
+      %br
+      = link_to "Eliminar Gasto", expense_path(expense), method: :delete, data: { confirm: "Seguro que desea eliminar el gasto?" }
     .col-md-4
       %h4 Trabajo
       %br
